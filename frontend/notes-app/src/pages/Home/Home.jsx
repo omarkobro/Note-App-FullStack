@@ -45,6 +45,7 @@ const loadNotes = async (search = "") => {
 
 const handleAddOrEdit = async (formData, type, id = null) => {
   try {
+    // eslint-disable-next-line no-unused-vars
     const note = type === 'edit'
       ? await editNote(id, formData)
       : await createNote(formData);

@@ -21,7 +21,7 @@ export const getInitials = (name)=>{
 }
 
 const axiosInstance = axios.create({
-  baseURL: 'http://localhost:3000',
+  baseURL: 'https://note-app-api-murex.vercel.app',
   headers: {
     'Content-Type': 'application/json',
   },

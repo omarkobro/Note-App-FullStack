@@ -15,11 +15,21 @@ const port = process.env.PORT || 3000
 
 db_connection()
 
-app.use(cors({ 
-    origin: '*',
-    methods: ["GET","POST", "PUT", "PATCH", "DELETE"],
-    credentials : true
- }))
+const allowedOrigins = [
+  'http://localhost:5173',
+  process.env.CLIENT_URL
+];
+
+app.use(cors({
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  credentials: true,
+}));
 
 app.use('/user', userRouter)
 app.use('/note', noteRouter)

@@ -33,8 +33,7 @@ axiosInstance.interceptors.request.use((config) => {
   if (token) {
     config.headers.accesstoken = `accesstoken_${token}`; 
   }
-  console.log(token);
-  console.log(config.headers.accesstoken);
+
   
   return config;
 });

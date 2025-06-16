@@ -30,7 +30,10 @@ db_connection()
 //   },
 //   credentials: true,
 // }));
-app.use(cors()); //Testing
+app.use(cors({
+  origin: true, 
+  credentials: true,
+})); //Testing
 app.get('/', (req,res)=>{
   res.json("hello world")
   

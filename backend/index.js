@@ -31,8 +31,10 @@ db_connection()
 //   credentials: true,
 // }));
 app.use(cors({
-  origin: true, 
+  origin: ['http://localhost:5173', 'https://note-app-client-kappa.vercel.app'],
   credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization', 'accesstoken'],
 })); //Testing
 app.get('/', (req,res)=>{
   res.json("hello world")

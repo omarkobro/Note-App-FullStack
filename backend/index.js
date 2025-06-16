@@ -31,6 +31,10 @@ app.use(cors({
   credentials: true,
 }));
 
+app.get('/', (req,res)=>{
+  res.json("hello world")
+  
+})
 app.use('/user', userRouter)
 app.use('/note', noteRouter)
 
